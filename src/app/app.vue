@@ -2,15 +2,17 @@
 import '@/app/assets/css/index.css'
 import { RouterView } from 'vue-router'
 import { constants } from '@/shared/lib'
-
 import liff from "@line/liff"
+import { onMounted } from 'vue'
 
-liff.init({ liffId: constants.LIFF_ID})
-.then(() => {
-  alert('LIFF initialized successfully')
-})
-.catch(() => {
-  alert('LIFF initialization failed')
+onMounted(() => {
+  liff.init({ liffId: constants.LIFF_ID})
+    .then(() => {
+      alert('LIFF initialized successfully')
+    })
+    .catch(() => {
+      alert('LIFF initialization failed')
+    })
 })
 </script>
 
