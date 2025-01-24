@@ -1,20 +1,5 @@
 <script setup lang="ts">
-import type { Profile } from '@liff/get-profile';
-import liff from '@line/liff';
-import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router'
-
-const profile = ref<Profile>()
-const accessToken = ref<string | null>()
-
-onMounted(async () => {
-  alert(liff.isInClient())
-
-  accessToken.value = liff.getAccessToken()
-  profile.value = await liff.getProfile()
-})
-
-
 </script>
 
 <template>
