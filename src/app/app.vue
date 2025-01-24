@@ -1,6 +1,17 @@
 <script setup lang="ts">
 import '@/app/assets/css/index.css'
 import { RouterView } from 'vue-router'
+import { constants } from '@/shared/lib'
+
+import liff from "@line/liff"
+
+liff.init({ liffId: constants.LIFF_ID})
+.then(() => {
+  alert('LIFF initialized successfully')
+})
+.catch(() => {
+  alert('LIFF initialization failed')
+})
 </script>
 
 <template>
