@@ -1,5 +1,10 @@
 <script setup lang="ts">
+import liff from '@line/liff';
 import { RouterLink } from 'vue-router'
+
+const id = liff.getIDToken()
+
+console.log(id)
 </script>
 
 <template>
