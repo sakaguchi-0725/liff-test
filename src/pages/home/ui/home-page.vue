@@ -8,6 +8,8 @@ const profile = ref<Profile>()
 const accessToken = ref<string | null>()
 
 onMounted(async () => {
+  alert(liff.isInClient())
+
   accessToken.value = liff.getAccessToken()
   profile.value = await liff.getProfile()
 })
@@ -20,8 +22,6 @@ onMounted(async () => {
     <h1 class="page-header">Home</h1>
     <p class="text">
       これはホーム画面です<br />
-      AccessToken: {{ accessToken }}<br />
-      LINE UserName: {{ profile?.displayName }}
     </p>
     <RouterLink :to="{ name: 'about' }" class="btn btn-primary">
       次へ
