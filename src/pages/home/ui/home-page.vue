@@ -1,9 +1,16 @@
 <script setup lang="ts">
+import type { Profile } from '@liff/get-profile';
 import liff from '@line/liff';
-import { ref } from 'vue';
+import { onMounted, ref } from 'vue';
 import { RouterLink } from 'vue-router'
 
-const id = ref<string | null>(liff.getIDToken())
+const profile = ref<Profile>()
+const accessToken = ref<string | null>()
+
+onMounted(async () => {
+  accessToken.value = liff.getAccessToken()
+  profile.value = await liff.getProfile()
+})
 
 
 </script>
@@ -13,7 +20,8 @@ const id = ref<string | null>(liff.getIDToken())
     <h1 class="page-header">Home</h1>
     <p class="text">
       これはホーム画面です<br />
-      LINE ID {{ id }}
+      AccessToken: {{ accessToken }}<br />
+      LINE UserName: {{ profile?.displayName }}
     </p>
     <RouterLink :to="{ name: 'about' }" class="btn btn-primary">
       次へ
