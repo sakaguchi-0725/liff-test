@@ -4,7 +4,7 @@ import { useRoute } from 'vue-router';
 
 const route = useRoute()
 alert(route.query["liff.state"])
-alert(route.query)
+alert(JSON.stringify(route.query))
 </script>
 
 <template>
