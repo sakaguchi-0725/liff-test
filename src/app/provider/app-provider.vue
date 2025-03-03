@@ -6,7 +6,7 @@ const route = useRoute()
 
 
 onMounted(() => {
-  alert(route.query)
+  alert(route.params)
 })
 </script>
 
