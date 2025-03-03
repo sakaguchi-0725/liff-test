@@ -5,6 +5,7 @@ import { useRoute } from 'vue-router';
 const route = useRoute()
 const clinic = computed(() => route.query['clinic'])
 alert(clinic.value)
+alert(route.fullPath)
 </script>
 
 <template>
