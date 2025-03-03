@@ -1,13 +1,10 @@
 <script lang="ts" setup>
-import { onMounted } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
-
-
-onMounted(() => {
-  alert(route.query['clinic'])
-})
+const clinic = computed(() => route.query['clinic'])
+alert(clinic)
 </script>
 
 <template>
