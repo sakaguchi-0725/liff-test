@@ -6,6 +6,7 @@ const route = useRoute()
 
 const decodedLiffState = computed(() => {
   const liffState = route.query['liff.state']
+  alert(liffState)
   return liffState ? decodeURIComponent(liffState as string) : ''
 })
 
@@ -19,9 +20,6 @@ const clinicVal = computed(() => {
   return params.get('clinic')
 })
 
-onMounted(() => {
-  alert(clinicVal)
-})
 </script>
 
 <template>
