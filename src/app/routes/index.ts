@@ -1,4 +1,4 @@
-import { createMemoryHistory, createRouter, createWebHistory, type Router, type RouteRecordRaw } from "vue-router"
+import { createMemoryHistory, createRouter, createWebHashHistory, type Router, type RouteRecordRaw } from "vue-router"
 import { HomePage } from "@/pages/home"
 import { AboutPage } from "@/pages/about"
 import { constants } from "@/shared/lib"
@@ -11,7 +11,7 @@ const routes: RouteRecordRaw[] = [
 export const createAppRouter = (type: "web" | "memory"): Router => {
   const history =
     type === 'web'
-      ? createWebHistory(constants.BASE_URL)
+      ? createWebHashHistory(constants.BASE_URL)
       : createMemoryHistory(constants.BASE_URL)
 
   return createRouter({
