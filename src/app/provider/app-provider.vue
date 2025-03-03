@@ -1,5 +1,5 @@
 <script lang="ts" setup>
-import { computed } from 'vue';
+import { computed, onMounted } from 'vue';
 import { useRoute } from 'vue-router';
 
 const route = useRoute()
@@ -17,6 +17,10 @@ const clinicVal = computed(() => {
 
   const params = new URLSearchParams(urlParts[1])
   return params.get('clinic')
+})
+
+onMounted(() => {
+  alert(clinicVal)
 })
 </script>
 
