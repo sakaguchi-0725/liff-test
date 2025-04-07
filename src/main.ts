@@ -5,6 +5,10 @@ import { constants } from './shared/lib'
 
 const main = async () => {
   await liff.init({ liffId: constants.LIFF_ID })
+  
+  const idToken = liff.getIDToken()
+  const accessToken = liff.getAccessToken()
+  alert(`IDToken: ${idToken}\nAccessToken: ${accessToken}`)
 
   const app = createApp(App)
   const router = createAppRouter("web")
